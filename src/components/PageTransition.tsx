@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import type { Variants } from "framer-motion";
 
 type PageTransitionProps = {
   children: React.ReactNode;
@@ -11,7 +12,7 @@ export function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
   const prefersReducedMotion = useReducedMotion();
 
-  const contentVariants = prefersReducedMotion
+  const contentVariants: Variants = prefersReducedMotion
     ? {
         initial: { opacity: 0 },
         animate: { opacity: 1, transition: { duration: 0.2 } },
@@ -33,7 +34,7 @@ export function PageTransition({ children }: PageTransitionProps) {
         },
       };
 
-  const overlayVariants = {
+  const overlayVariants: Variants = {
     initial: { scaleY: 1 },
     animate: {
       scaleY: 0,

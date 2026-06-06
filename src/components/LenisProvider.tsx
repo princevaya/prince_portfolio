@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 
 type LenisProviderProps = {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export function LenisProvider({ children }: LenisProviderProps) {
     if (isCoarse) return;
     const lenis = new Lenis({
       smoothWheel: false,
-      smoothTouch: false,
+      syncTouch: false,
       lerp: 0.08,
     });
 
